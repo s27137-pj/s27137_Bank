@@ -45,13 +45,15 @@ public class ClientService {
     public List<Client> findAll(){
         return clientRepository.getAll();
     }
-    public List<Client> getAboveBalance(double balance) {
-        List<Client> clientsAboveBalance = clientRepository.findAboveBalance(balance);
-        if (!clientsAboveBalance.isEmpty()) {
-            return clientsAboveBalance;
-        } else {
-            throw new ValidationException("Nie znaleziono klientów o niższym stanie konta");
+
+    public List<Client> findByBalanceGreaterThan(Double balance) {
+        List<Client> byBalanceGreaterThan = clientRepository.findByBalanceGreaterThan(balance);
+
+        if (byBalanceGreaterThan.isEmpty()) {
+            throw new ValidationException("Users with balance " + balance + " and greater not found");
         }
+
+        return byBalanceGreaterThan;
     }
 
 

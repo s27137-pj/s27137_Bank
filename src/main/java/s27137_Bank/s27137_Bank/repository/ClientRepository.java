@@ -25,8 +25,12 @@ public class ClientRepository {
                 .findFirst();
     }
 
-    public List<Client> findAboveBalance(double balance) {
-        return clientList.stream().filter(account -> account.getAccountValue() > balance).toList();
+
+
+    public List<Client> findByBalanceGreaterThan(Double balance) {
+        return clientList.stream()
+                .filter(userAccount -> userAccount.getAccountValue() > balance)
+                .toList();
     }
 
 

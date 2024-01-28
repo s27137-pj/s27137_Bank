@@ -47,22 +47,6 @@ class ClientServiceTest {
         assertEquals(client.getPesel(), result.getPesel());
     }
 
-//    @Test
-//    public void shouldGetAccountsAboveBalance() {
-//        Client client = new Client(1234, "Anna", "Zielona", 555D, "PLN");
-//        Client client1 = new Client(1234, "Jan", "Zielonka", 5D, "PLN");
-//        clientService.register(client);
-//        clientService.register(client1);
-//
-//        var accounts = clientService.(10000);
-//        assertEquals(1, accounts.size());
-//        assertEquals(1, accounts.get(0).getPesel());
-//    }
-
-
-
-
-
 
 
 }
