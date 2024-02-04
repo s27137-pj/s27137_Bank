@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import s27137_Bank.s27137_Bank.excception.ValidationException;
+import s27137_Bank.s27137_Bank.exception.ValidationException;
 import s27137_Bank.s27137_Bank.model.Client;
 import s27137_Bank.s27137_Bank.service.ClientService;
 
@@ -12,13 +12,13 @@ import java.util.List;
 
 
 @RestController
-    @RequestMapping("/register")
+    @RequestMapping("/clients")
     @AllArgsConstructor
 
     public class ClientController {
         private final ClientService clientService;
 
-        @PostMapping
+        @PostMapping("/register")
         public ResponseEntity<Client> create(@RequestBody Client client) {
             try {
                 Client createdClient = clientService.register(client);
@@ -37,6 +37,24 @@ import java.util.List;
             return ResponseEntity.ok(list);
 
         }
+
+    @GetMapping("/getByPesel/{id}")
+    public ResponseEntity<Client> findById(@PathVariable Integer id) {
+        Client client = clientService.getByPesel(id);
+
+        return ResponseEntity
+                .status(HttpStatusCode.valueOf(200))
+                .body(client);
+    }
+
+    @GetMapping("/findByBalanceGreaterThan-{balance}")
+    public ResponseEntity<List<Client>> findByBalanceGreaterThan(@PathVariable Double balance) {
+        List<Client> client = clientService.findByBalanceGreaterThan(balance);
+
+        return ResponseEntity
+                .status(HttpStatusCode.valueOf(200))
+                .body(client);
+    }
 }
 
 

@@ -13,7 +13,7 @@ public class ClientRepository {
     private List<Client> clientList = new ArrayList<>();
 
     public Client register(Client client) {
-        client.setPesel(clientList.size());
+//        client.setPesel(clientList.size());
         clientList.add(client);
 
         return client;

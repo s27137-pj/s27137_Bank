@@ -2,7 +2,7 @@ package s27137_Bank.s27137_Bank.service;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import s27137_Bank.s27137_Bank.excception.ValidationException;
+import s27137_Bank.s27137_Bank.exception.ValidationException;
 import s27137_Bank.s27137_Bank.model.Client;
 import s27137_Bank.s27137_Bank.repository.ClientRepository;
 
@@ -37,11 +37,7 @@ public class ClientService {
                 .orElseThrow(() -> new ValidationException("Klient o peselu: " + ID + " nie znajduje się w naszej bazie"));
     }
 
-//    public Client getAboveBalance(double balance) {
-//        return clientRepository.findAboveBalance(balance);
-//    }
 
-//
     public List<Client> findAll(){
         return clientRepository.getAll();
     }

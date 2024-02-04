@@ -1,4 +1,4 @@
-package s27137_Bank.s27137_Bank.excception;
+package s27137_Bank.s27137_Bank.exception;
 
 public class ValidationException extends RuntimeException{
 
